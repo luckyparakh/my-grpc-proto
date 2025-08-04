@@ -14,8 +14,13 @@ protoc-go:
 # 	./proto/bank/*.proto ./proto/bank/type/*.proto \
 # 	./proto/resiliency/*.proto \
 
+.PHONY: tidy
+tidy:
+	go mod tidy
+
+
 .PHONY: build
-build: clean protoc-go
+build: clean protoc-go tidy
 
 
 .PHONY: pipeline-init
